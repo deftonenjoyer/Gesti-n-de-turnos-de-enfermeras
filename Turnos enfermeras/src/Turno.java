@@ -45,6 +45,20 @@ public class Turno {
         this.enfermerasNecesarias = enfermerasNecesarias;
     }
 
+    public boolean cmabiarEnfermera (enfermera entra, enfermera sale){
+        if(!enfermerasAsignadas.contains(sale)){
+            return false; //no está en la lista
+        }
+        if (enfermerasAsignadas.contains(entra)){
+            return false; //ya está en este turno
+        }
+
+        //cambia
+        enfermerasAsignadas.remove(sale);
+        enfermerasAsignadas.add(entra);
+        return true;
+
+    }
 
 
 }
