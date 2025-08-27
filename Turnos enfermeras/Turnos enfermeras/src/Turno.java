@@ -18,6 +18,7 @@ public class Turno {
         return area;
     }
     public void setArea(Area area) {
+
         this.area = area;
     }
 
@@ -25,7 +26,7 @@ public class Turno {
     public String getTipoTurno() {
         return tipoTurno;
     }
-    public void setTipoTurno(){
+    public void setTipoTurno(String tipoTurno) {
         this.tipoTurno = tipoTurno;
     }
 
@@ -45,7 +46,7 @@ public class Turno {
         this.enfermerasNecesarias = enfermerasNecesarias;
     }
 
-    public boolean cmabiarEnfermera (Enfermera entra, Enfermera sale){
+    public boolean camabiarEnfermera (Enfermera entra, Enfermera sale){
         if(!enfermerasAsignadas.contains(sale)){
             return false; //no está en la lista
         }
@@ -57,6 +58,14 @@ public class Turno {
         enfermerasAsignadas.remove(sale);
         enfermerasAsignadas.add(entra);
         return true;
+
+    }
+    public void asignarEnfermera(Enfermera e) {
+        enfermerasAsignadas.add(e);
+    }
+
+
+    public void cambiarEnfermera(int entraID, int saleID){
 
     }
 

@@ -7,14 +7,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         SistemaHospital hospital = new SistemaHospital();
-
         while (true) {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
             System.out.println("=== Sistema Gestion de turnos ===");
             System.out.println("1. Gestion de enfermeras");
             System.out.println("2. Gestion de Areas");
-            System.out.println("3. Planificacion de Turnos");
-            System.out.println("4. Gestion de turnos");
+            System.out.println("3. Gestion de turnos");
+            System.out.println("4. Planificacion de Turnos");
             System.out.println("5. Reportes");
             System.out.println("0. Salir");
 
@@ -22,16 +21,15 @@ public class Main {
             switch (opcion) {
                 case 1:
                     hospital.gestionarEnfermeras();
-
                     break;
                 case 2:
-                    System.out.println("Gestion de areas");
+                    hospital.gestionarAreas();
                     break;
                 case 3:
-                    System.out.println("Planificacion de turnos");
+                    System.out.println("Gestion de turnos");
                     break;
                 case 4:
-                    System.out.println("Gestion de turnos");
+                    System.out.println("Planificacion de Turnos");
                     break;
                 case 5:
                     System.out.println("Reportes");
