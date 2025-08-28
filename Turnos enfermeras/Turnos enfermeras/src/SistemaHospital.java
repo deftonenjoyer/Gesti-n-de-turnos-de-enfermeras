@@ -253,4 +253,42 @@ public class SistemaHospital {
         }
 
     }
+
+    public void gestionarTrunos() throws IOException {
+        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
+
+        while (true) {
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+            System.out.println("--Gestion de Turnos--");
+            System.out.println("1. Agregar turno");
+            System.out.println("2. Eliminar turno");
+            System.out.println("3  Listar turno");
+            System.out.println("0  Volver al menu principal");
+
+            int opcion = Integer.parseInt(lector.readLine());
+
+            switch (opcion) {
+                case 1:
+                    agregarTurno();
+                    break;
+
+                case 2:
+                    eliminarTurno();
+                    break;
+
+                case 3:
+                    listarTurnos();
+                    break;
+
+            }
+            if (opcion == 0) {
+                break;
+
+
+            }
+        }
+
+
+    }
+
 }
