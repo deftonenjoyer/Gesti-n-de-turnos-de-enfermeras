@@ -23,6 +23,13 @@ public class Enfermera {
         this.nombreEnfermera = nombreEnfermera;
     }
 
+    public void asignarTurno(Turno turno) {
+        turnoAsignado.add(turno);
+    }
+
+    public void asignarTurno(List<Turno> turnos) {
+        turnoAsignado.addAll(turnos);
+    }
 
 }
 

@@ -81,6 +81,26 @@ public class SistemaHospital {
         }
     }
 
+    public void EliminarEnfermera(String nombre) {
+        boolean eliminado = false;
+        List<Integer> idsAEliminar = new ArrayList<>();
+        for (Map.Entry<Integer, Enfermera> entry : mapEnfermeras.entrySet()) {
+            if (entry.getValue().getNombreEnfermera().equalsIgnoreCase(nombre)) {
+                idsAEliminar.add(entry.getKey());
+            }
+        }
+        for (Integer id : idsAEliminar) {
+            Enfermera e = mapEnfermeras.remove(id);
+            enfermeras.removeIf(enf -> enf.getIdEnfermera() == id);
+            eliminado = true;
+            System.out.println("Enfermera eliminada con éxito: " + e.getNombreEnfermera() + " (ID: " + e.getIdEnfermera() + ")");
+        }
+
+        if (!eliminado) {
+            System.out.println("Error, no se encontró ninguna enfermera con el nombre: " + nombre);
+        }
+    }
+
 
     public void gestionarEnfermeras() throws IOException {
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
@@ -101,7 +121,18 @@ public class SistemaHospital {
                     break;
 
                 case 2:
-                    EliminarEnfermera();
+                    System.out.println("¿Desea eliminar por ID o por nombre? (I/N)");
+                    String opcionEliminar = lector.readLine();
+
+                    if (opcionEliminar.equalsIgnoreCase("I")) {
+                        EliminarEnfermera();
+                    } else if (opcionEliminar.equalsIgnoreCase("N")) {
+                        System.out.println("Ingrese el nombre de la enfermera a eliminar:");
+                        String nombre = lector.readLine();
+                        EliminarEnfermera(nombre);
+                    } else {
+                        System.out.println("Opción inválida, vuelva a intentarlo.");
+                    }
                     break;
 
                 case 3:
