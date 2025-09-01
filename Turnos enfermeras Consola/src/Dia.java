@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dia {
-    private String diaSemana; //Lunes, Martes...
+    private String diaSemana;
     private List<Turno> turnos;
 
     public Dia(String diaSemana){

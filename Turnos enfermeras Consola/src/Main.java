@@ -7,6 +7,14 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         SistemaHospital hospital = new SistemaHospital();
+
+        hospital.agregarEnfermeraPorNombre("Ana Pérez");
+        hospital.agregarEnfermeraPorNombre("Josefa González");
+        hospital.agregarAreaPorNombre("UCI");
+        hospital.agregarAreaPorNombre("Emergencia");
+        hospital.agregarTurno(hospital.getAreaHospital(0), "Día", 5);
+        hospital.agregarTurno(hospital.getAreaHospital(1), "Noche", 3);
+
         while (true) {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
             System.out.println("=== Sistema Gestion de turnos ===");

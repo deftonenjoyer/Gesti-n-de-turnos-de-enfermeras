@@ -45,6 +45,16 @@ public class SistemaHospital {
         }
     }
 
+    public void agregarEnfermeraPorNombre(String nombre) {
+        int nuevoId = 1;
+        if (!mapEnfermeras.isEmpty()) {
+            nuevoId = mapEnfermeras.keySet().stream().max(Integer::compareTo).get() + 1;
+        }
+        Enfermera nueva = new Enfermera(nuevoId, nombre);
+        enfermeras.add(nueva);
+        mapEnfermeras.put(nuevoId, nueva);
+    }
+
 
     public void agregarEnfermera() throws IOException {
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
@@ -150,6 +160,16 @@ public class SistemaHospital {
 
     }
 
+    public void agregarAreaPorNombre(String nombre){
+        Area nuevaArea = new Area(nombre);
+        for (Area area : areasList) {
+            if (area.getNombre().equalsIgnoreCase(nuevaArea.getNombre())) {
+                return;
+            }
+        }
+        areasList.add(nuevaArea);
+    }
+
     public void agregarArea() throws IOException {
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Ingrese el nombre de la nueva área: ");
@@ -164,6 +184,14 @@ public class SistemaHospital {
         }
         areasList.add(nuevaArea);
         System.out.println("Área '" + nuevaArea.getNombre() + "' agregada con éxito.");
+    }
+
+    public Area getAreaHospital(int posicion) {
+        if (posicion >= 0 && posicion < areasList.size()) {
+            return areasList.get(posicion);
+        } else {
+            return null;
+        }
     }
 
     public void eliminarArea() throws IOException {
@@ -256,6 +284,11 @@ public class SistemaHospital {
         }
 
 
+    }
+
+    public void agregarTurno(Area area, String tipoTurno, int capacidadEnfermeras){
+        Turno t = new Turno(area, tipoTurno, capacidadEnfermeras);
+        turnos.add(t);
     }
 
     public void agregarTurno() throws IOException {

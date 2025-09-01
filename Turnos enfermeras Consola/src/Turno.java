@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Turno {
     private Area area;
-    private String tipoTurno; //Mañana-Noche//
+    private String tipoTurno;
     private List<Enfermera> enfermerasAsignadas;
     private int enfermerasNecesarias;
 
@@ -53,8 +53,6 @@ public class Turno {
         if (enfermerasAsignadas.contains(entra)){
             return false; //ya está en este turno
         }
-
-        //cambia
         enfermerasAsignadas.remove(sale);
         enfermerasAsignadas.add(entra);
         return true;
