@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectosiafinal.PlanificacionController">
+
+    <children>
+        <Label layoutX="80" layoutY="20" text="Enfermeras Disponibles" />
+        <ListView fx:id="lvEnfermeras" layoutX="50" layoutY="50" prefHeight="250" prefWidth="200" />
+        <Label layoutX="350" layoutY="20" text="Turnos con cupos" />
+        <ListView fx:id="lvTurnos" layoutX="300" layoutY="50" prefHeight="250" prefWidth="250" />
+        <Button fx:id="btnAsignar" layoutX="220" layoutY="320" text="Asignar" />
+        <Button fx:id="btnSalir" layoutX="441.0" layoutY="361.0" text="Volver al menu principal" />
+    </children>
+</Pane>

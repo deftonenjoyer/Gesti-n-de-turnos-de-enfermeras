@@ -1,0 +1,26 @@
+Tutorial para abrir y ejecutar el proyecto Gestion de turnos de enfermeras
+
+1. Instalar IntelliJ IDEA
+
+2. Descargar JavaFX
+   - Es necesario tener instalado JavaFX.
+   - Descarga la versión correspondiente a tu sistema operativo desde la página oficial de https://openjfx.io/
+
+3. Abrir el proyecto
+   - En IntelliJ, selecciona Open.
+   - Busca la carpeta donde se encuentra el archivo ProyectoSiaFinal y ábrela.
+
+4. Configurar el JDK
+   - Al abrir el proyecto por primera vez, IntelliJ pedirá seleccionar un JDK.
+   - Descarga e instala Oracle OpenJDK 25 (o superior compatible).
+   - Luego, en IntelliJ, ve a:
+     File > Project Structure > Project > SDK y selecciona el JDK instalado.
+
+5. Ubicar la clase principal
+   - El archivo de inicio del programa es:
+     src/main/java/com/example/proyectosiafinal/HelloApplication.java
+
+6. Ejecutar la aplicación
+   - Abre la clase HelloApplication.
+   - Haz clic derecho sobre el archivo y selecciona Run 'HelloApplication.main()'.
+   - La aplicación cargará la ventana principal del sistema y estará lista para usarse.
