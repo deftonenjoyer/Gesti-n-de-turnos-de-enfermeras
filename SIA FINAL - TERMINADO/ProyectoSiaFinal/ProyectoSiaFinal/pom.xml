@@ -12,12 +12,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <javafx.version>17.0.8</javafx.version> <!-- LTS y funciona con JDK 11 -->
+        <javafx.version>17.0.8</javafx.version>
         <junit.version>5.9.3</junit.version>
     </properties>
 
     <dependencies>
-        <!-- JavaFX (compatible JDK 11) -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -34,7 +33,6 @@
             <version>${javafx.version}</version>
         </dependency>
 
-        <!-- Tests -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
