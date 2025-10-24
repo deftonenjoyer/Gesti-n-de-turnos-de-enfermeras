@@ -75,9 +75,11 @@ public class Administracion_TurnosController{
             Parent root = loader.load();
 
             Object controller = loader.getController();
-            if (controller instanceof MenuController mic) {
+            if (controller instanceof MenuController) {
+                MenuController mic = (MenuController) controller;
                 mic.setSistemaHospital(fresh);
             }
+
 
             Stage stage = (Stage) btnSalir.getScene().getWindow();
             stage.setTitle("Menú Principal");

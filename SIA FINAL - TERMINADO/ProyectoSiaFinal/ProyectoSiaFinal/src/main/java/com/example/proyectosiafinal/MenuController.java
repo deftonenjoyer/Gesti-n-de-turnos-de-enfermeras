@@ -15,10 +15,7 @@ import javafx.stage.Stage;
 
 public class MenuController implements Initializable {
 
-    // --- Aquí guardaremos la referencia al modelo ---
     private SistemaHospital sistemaHospital;
-
-    // --- Este es el método que faltaba ---
     public void setSistemaHospital(SistemaHospital sistemaHospital) {
         this.sistemaHospital = sistemaHospital;
     }
@@ -46,15 +43,20 @@ public class MenuController implements Initializable {
             Parent root = loader.load();
 
             Object controller = loader.getController();
-            if (controller instanceof AdministracionEnfermerasController c) {
+            if (controller instanceof AdministracionEnfermerasController) {
+                AdministracionEnfermerasController c = (AdministracionEnfermerasController) controller;
                 c.setSistemaHospital(sistemaHospital);
-            } else if (controller instanceof Administracion_TurnosController c) {
+            } else if (controller instanceof Administracion_TurnosController) {
+                Administracion_TurnosController c = (Administracion_TurnosController) controller;
                 c.setSistemaHospital(sistemaHospital);
-            } else if (controller instanceof Administracion_AreasController c) {
+            } else if (controller instanceof Administracion_AreasController) {
+                Administracion_AreasController c = (Administracion_AreasController) controller;
                 c.setSistemaHospital(sistemaHospital);
-            } else if (controller instanceof PlanificacionController c) {
+            } else if (controller instanceof PlanificacionController) {
+                PlanificacionController c = (PlanificacionController) controller;
                 c.setSistemaHospital(sistemaHospital);
-            }else if (controller instanceof ReportesController c) {
+            } else if (controller instanceof ReportesController) {
+                ReportesController c = (ReportesController) controller;
                 c.setSistemaHospital(sistemaHospital);
             }
 

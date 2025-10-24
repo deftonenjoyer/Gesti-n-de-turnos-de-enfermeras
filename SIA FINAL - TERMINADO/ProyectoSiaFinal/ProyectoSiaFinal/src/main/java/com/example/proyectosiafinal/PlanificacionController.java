@@ -80,9 +80,11 @@ public class PlanificacionController {
             Parent root = loader.load();
 
             Object controller = loader.getController();
-            if (controller instanceof MenuController mic) {
+            if (controller instanceof MenuController) {
+                MenuController mic = (MenuController) controller;
                 mic.setSistemaHospital(fresh);
             }
+
 
             Stage currentStage = (Stage) btnSalir.getScene().getWindow();
             currentStage.setTitle("Menú Principal");

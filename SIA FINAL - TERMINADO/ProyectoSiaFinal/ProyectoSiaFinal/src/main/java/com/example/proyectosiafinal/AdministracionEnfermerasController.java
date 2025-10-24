@@ -1,4 +1,4 @@
-package com.example.proyectosiafinal; // cámbialo por el paquete donde guardes tu clase
+package com.example.proyectosiafinal;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -11,22 +11,16 @@ import java.io.IOException;
 
 public class AdministracionEnfermerasController {
 
-    @FXML
-    private Button btnAgregar;
-
-    @FXML
-    private Button btnEliminar;
-
-    @FXML
-    private Button btnListar;
-
-    @FXML
-    private Button btnSalir;
+    @FXML private Button btnAgregar;
+    @FXML private Button btnEliminar;
+    @FXML private Button btnListar;
+    @FXML private Button btnSalir;
 
     private SistemaHospital sistemaHospital;
     public void setSistemaHospital(SistemaHospital sistemaHospital) {
         this.sistemaHospital = sistemaHospital;
     }
+
     @FXML
     private void initialize() {
         btnAgregar.setOnAction(e -> abrirVentana("Agregar_Enfermera.fxml", "Agregar Enfermera"));
@@ -41,13 +35,15 @@ public class AdministracionEnfermerasController {
             Parent root = loader.load();
 
             Object controller = loader.getController();
-
             if (controller instanceof AgregarEnfermeraController) {
-                ((AgregarEnfermeraController) controller).setSistemaHospital(sistemaHospital);
+                AgregarEnfermeraController c = (AgregarEnfermeraController) controller;
+                c.setSistemaHospital(sistemaHospital);
             } else if (controller instanceof EliminarEnfermeraController) {
-                ((EliminarEnfermeraController) controller).setSistemaHospital(sistemaHospital);
+                EliminarEnfermeraController c = (EliminarEnfermeraController) controller;
+                c.setSistemaHospital(sistemaHospital);
             } else if (controller instanceof ListarEnfermerasC) {
-                ((ListarEnfermerasC) controller).setSistemaHospital(sistemaHospital);
+                ListarEnfermerasC c = (ListarEnfermerasC) controller;
+                c.setSistemaHospital(sistemaHospital);
             }
 
             Stage newStage = new Stage();
@@ -59,7 +55,6 @@ public class AdministracionEnfermerasController {
             ex.printStackTrace();
         }
     }
-
 
     private void cerrarVentana() {
         try {
@@ -75,7 +70,8 @@ public class AdministracionEnfermerasController {
             Parent root = loader.load();
 
             Object controller = loader.getController();
-            if (controller instanceof MenuController mic) {
+            if (controller instanceof MenuController) {
+                MenuController mic = (MenuController) controller;
                 mic.setSistemaHospital(fresh);
             }
 

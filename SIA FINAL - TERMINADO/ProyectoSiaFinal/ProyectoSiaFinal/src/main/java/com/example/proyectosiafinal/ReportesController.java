@@ -5,8 +5,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ReportesController {
 
@@ -45,17 +52,27 @@ public class ReportesController {
             taResultado.setText("No hay modelo.");
             return;
         }
+
         String tipo = cbReporte.getValue();
-        java.util.List<String> lineas = switch (tipo) {
-            case "Turnos con vacantes"   -> sistemaHospital.reporteTurnosConVacantes();
-            case "Enfermeras sin turno"  -> sistemaHospital.reporteEnfermerasSinTurno();
-            case "Cobertura por área"    -> sistemaHospital.reporteCoberturaPorArea();
-            case "Asignaciones por turno"-> sistemaHospital.reporteAsignacionesPorTurno();
-            case "Diagnóstico de integridad" -> sistemaHospital.reporteDiagnosticoIntegridad();
-            default -> java.util.List.of("Reporte no soportado.");
-        };
+        List<String> lineas;
+
+        if ("Turnos con vacantes".equals(tipo)) {
+            lineas = sistemaHospital.reporteTurnosConVacantes();
+        } else if ("Enfermeras sin turno".equals(tipo)) {
+            lineas = sistemaHospital.reporteEnfermerasSinTurno();
+        } else if ("Cobertura por área".equals(tipo)) {
+            lineas = sistemaHospital.reporteCoberturaPorArea();
+        } else if ("Asignaciones por turno".equals(tipo)) {
+            lineas = sistemaHospital.reporteAsignacionesPorTurno();
+        } else if ("Diagnóstico de integridad".equals(tipo)) {
+            lineas = sistemaHospital.reporteDiagnosticoIntegridad();
+        } else {
+            lineas = Collections.singletonList("Reporte no soportado.");
+        }
+
         taResultado.setText(String.join("\n", lineas));
     }
+
     private void cerrarVentana() {
         try {
             if (sistemaHospital != null) {
@@ -70,7 +87,8 @@ public class ReportesController {
             Parent root = loader.load();
 
             Object controller = loader.getController();
-            if (controller instanceof MenuController mic) {
+            if (controller instanceof MenuController) {
+                MenuController mic = (MenuController) controller;
                 mic.setSistemaHospital(fresh);
             }
 
