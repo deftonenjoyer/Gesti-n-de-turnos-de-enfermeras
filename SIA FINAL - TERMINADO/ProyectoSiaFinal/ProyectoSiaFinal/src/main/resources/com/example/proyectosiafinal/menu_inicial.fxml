@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectosiafinal.MenuController">
+<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectosiafinal.MenuController">
     <children>
         <Label layoutX="243.0" layoutY="34.0" text="Menú Administración" />
         <Button fx:id="btnEnfermeras" layoutX="230.0" layoutY="96.0" text="Administrar Enfermeras" />
